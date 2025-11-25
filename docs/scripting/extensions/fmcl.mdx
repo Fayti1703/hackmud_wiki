@@ -4,7 +4,11 @@ title: "#FMCL"
 
 Prevents execution of a script more than once per script run.
 
-#FMCL - or 'Function Multi-Call Lock' - is a function that returns `false` when first encountered in a top-level script execution, then `true` when encountered subsequent times. It is used by [[escrow.charge:((escrow.charge))]], for example, to ensure it is only called once per script run.
+#FMCL - or 'Function Multi-Call Lock' - is an expression that returns `false` the first time it is evaluated per script, then `true` when evaluated subsequent times in the same top-level script execution.
+
+Note that #FMCL is tracked per script, similar to [[g:(#G)]].
+
+For example, [[escrow.charge:((escrow.charge))]] uses it to ensure it is only called once per script run, to prevent double-charging.
 
 ## Syntax
 
